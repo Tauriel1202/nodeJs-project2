@@ -3,7 +3,7 @@
     {
       "firstname": "Galadriel",
       "lastname": "Felagund",
-      "series": "Middle Earth",
+      "series": ["The Lord of the Rings", "The Hobbit", "The Rings of Power"],
       "homeland": "Valinor",
       "currentHome": "Lothlorien",
       "species": "Elf",
@@ -16,7 +16,7 @@
     {
       "firstname": "Tauriel",
       "lastname": "Greenleaf",
-      "series": "Middle Earth",
+      "series": ["The Hobbit"],
       "homeland": "Mirkwood",
       "currentHome": "Mirkwood",
       "species": "Elf",
@@ -29,7 +29,7 @@
     {
       "firstname": "Mæthóriel",
       "lastname": "Noraskosen",
-      "series": "The Sibling Bond",
+      "series": ["The Sibling Bond", "Shadowhunter"],
       "homeland": "Taurenor, Alvena",
       "currentHome": "Taurenor, Alvena",
       "species": "Elf",
@@ -42,7 +42,7 @@
     {
       "firstname": "Seth",
       "lastname": "Sorenson",
-      "series": "Fablehaven",
+      "series": ["Fablehaven", "Dragonwatch"],
       "homeland": "Rochester, New York",
       "currentHome": "Fablehaven, Connecticut",
       "species": "Man",
@@ -55,7 +55,7 @@
     {
       "firstname": "Elrond",
       "lastname": "Half-Elven",
-      "series": "Middle Earth",
+      "series": ["The Lord of the Rings", "The Hobbit", "The Rings of Power"],
       "homeland": "Valinor",
       "currentHome": "Imladris",
       "species": "Elf",
@@ -64,6 +64,19 @@
       "favColor": "blue",
       "age": { "$numberInt": "5000" },
       "siblings": ["Elros", "Elladan"]
+    },
+    {
+      "firstname": "Armorer",
+      "lastname": "",
+      "series": ["The Mandalorian", "The Book of Boba Fett"],
+      "homeland": "Mandalore",
+      "currentHome": "Nevarro",
+      "species": "Mandalorian",
+      "hairColor": "unknown",
+      "eyeColor": "unknown",
+      "favColor": "beskar, red, and gold",
+      "age": { "$numberInt": "40" },
+      "siblings": ["unknown"]
     }
   ]
 }

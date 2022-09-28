@@ -1,9 +1,9 @@
 //Localhost
 
-###All
+###All Chars
 GET http://localhost:3000/characters
 
-###Add
+###Add a Char
 POST http://localhost:3000/characters 
 Content-Type: application/json
 
@@ -20,3 +20,40 @@ Content-Type: application/json
       "age": { "$numberInt": "600" },
       "siblings": []
     }
+
+### All Quotes
+GET http://localhost:3000/quotes
+
+
+###Add a Quote
+POST http://localhost:3000/quotes
+
+
+//Render
+
+GET http://https://tauriel341-project2.onrender.com/characters
+
+###Add a Char
+POST http://https://tauriel341-project2.onrender.com/characters 
+Content-Type: application/json
+
+{
+      "firstname": "Tauriel",
+      "lastname": "Greenleaf",
+      "series": "Middle Earth",
+      "homeland": "Mirkwood",
+      "currentHome": "Mirkwood",
+      "species": "Elf",
+      "hairColor": "red",
+      "eyeColor": "green",
+      "favColor": "forest green",
+      "age": { "$numberInt": "600" },
+      "siblings": []
+    }
+
+### All Quotes
+GET http://https://tauriel341-project2.onrender.com/quotes
+
+
+###Add a Quote
+POST http://https://tauriel341-project2.onrender.com/quotes

@@ -1,9 +1,10 @@
-const { MongoClient } = require("mongodb");
+//functions for chars collection
+const { MongoClient, ObjectId } = require("mongodb");
 const uri = process.env.MONGO_URI.replace("cse341-project2", "chars");
 const client = new MongoClient(uri);
 const base = client.db("cse341-project2").collection("chars");
 
-console.log("Controllers: ");
+console.log("Chars Controllers: ");
 
 async function getAll(req, res) {
   await base

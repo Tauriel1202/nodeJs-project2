@@ -38,7 +38,8 @@
                   "example": "Last Name"
                 },
                 "series": {
-                  "example": "Book or Movie Series"
+                  "type": "array",
+                  "example": "series1, series2, series3"
                 },
                 "homeland": {
                   "example": "Homeland"
@@ -116,7 +117,8 @@
                   "example": "Last Name"
                 },
                 "series": {
-                  "example": "Book or Movie Series"
+                  "type": "array",
+                  "example": "series1, series2, series3"
                 },
                 "homeland": {
                   "example": "Homeland"
@@ -170,9 +172,116 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/quotes/": {
+      "get": {
+        "description": "Collect all the Quotes!",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
+          "500": {
+            "description": "internal error"
+          }
+        }
+      },
+      "post": {
+        "description": "Save a Quote!",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quote": {
+                  "example": "quote to add here"
+                },
+                "author": {
+                  "example": "author of quote"
+                },
+                "loc": {
+                  "example": "where it it from -- format: place, series"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created!"
+          }
+        }
+      }
+    },
+    "/quotes/{id}": {
+      "get": {
+        "description": "Find One Character!",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a Quote!",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quote": {
+                  "example": "change the quote"
+                },
+                "author": {
+                  "example": "update the author"
+                },
+                "loc": {
+                  "example": "modify the place or series"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Updated!"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a Quote! ❌",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
