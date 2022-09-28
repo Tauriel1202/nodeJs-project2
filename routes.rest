@@ -1,0 +1,22 @@
+//Localhost
+
+###All
+GET http://localhost:3000/characters
+
+###Add
+POST http://localhost:3000/characters 
+Content-Type: application/json
+
+{
+      "firstname": "Tauriel",
+      "lastname": "Greenleaf",
+      "series": "Middle Earth",
+      "homeland": "Mirkwood",
+      "currentHome": "Mirkwood",
+      "species": "Elf",
+      "hairColor": "red",
+      "eyeColor": "green",
+      "favColor": "forest green",
+      "age": { "$numberInt": "600" },
+      "siblings": []
+    }

@@ -1,0 +1,192 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Week 5 Node.js project: Characters",
+    "description": "Presenting: Characters! See their stats: names, series, appearances, and homelands. Now, with sibings!",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/characters/": {
+      "get": {
+        "description": "Grab all the characters!",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "internal error"
+          }
+        }
+      },
+      "post": {
+        "description": "Add a new Character!",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstname": {
+                  "example": "First Name"
+                },
+                "lastname": {
+                  "example": "Last Name"
+                },
+                "series": {
+                  "example": "Book or Movie Series"
+                },
+                "homeland": {
+                  "example": "Homeland"
+                },
+                "currentHome": {
+                  "example": "Current Home"
+                },
+                "species": {
+                  "example": "Species"
+                },
+                "hairColor": {
+                  "example": "Hair Color"
+                },
+                "eyeColor": {
+                  "example": "Eye Color"
+                },
+                "favColor": {
+                  "example": "Favorite Color"
+                },
+                "age": {
+                  "type": "int",
+                  "numberInt": 0
+                },
+                "siblings": {
+                  "type": "array",
+                  "example": "Sib1, Sib2, Sib3"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created!"
+          }
+        }
+      }
+    },
+    "/characters/{id}": {
+      "get": {
+        "description": "Find One Character!",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a Character!",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstname": {
+                  "example": "First Name"
+                },
+                "lastname": {
+                  "example": "Last Name"
+                },
+                "series": {
+                  "example": "Book or Movie Series"
+                },
+                "homeland": {
+                  "example": "Homeland"
+                },
+                "currentHome": {
+                  "example": "Current Home"
+                },
+                "species": {
+                  "example": "Species"
+                },
+                "hairColor": {
+                  "example": "Hair Color"
+                },
+                "eyeColor": {
+                  "example": "Eye Color"
+                },
+                "favColor": {
+                  "example": "Favorite Color"
+                },
+                "age": {
+                  "type": "int",
+                  "numberInt": 0
+                },
+                "siblings": {
+                  "type": "array",
+                  "example": "Sib1, Sib2, Sib3"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "Updated"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a Character! ❌",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

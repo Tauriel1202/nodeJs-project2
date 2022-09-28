@@ -1,0 +1,69 @@
+{
+  "chars": [
+    {
+      "firstname": "Galadriel",
+      "lastname": "Felagund",
+      "series": "Middle Earth",
+      "homeland": "Valinor",
+      "currentHome": "Lothlorien",
+      "species": "Elf",
+      "hairColor": "blonde",
+      "eyeColor": "blue",
+      "favColor": "white and gold",
+      "age": { "$numberInt": "8000" },
+      "siblings": ["Finrod", "Angrod", "Aegnor"]
+    },
+    {
+      "firstname": "Tauriel",
+      "lastname": "Greenleaf",
+      "series": "Middle Earth",
+      "homeland": "Mirkwood",
+      "currentHome": "Mirkwood",
+      "species": "Elf",
+      "hairColor": "red",
+      "eyeColor": "green",
+      "favColor": "forest green",
+      "age": { "$numberInt": "600" },
+      "siblings": []
+    },
+    {
+      "firstname": "Mæthóriel",
+      "lastname": "Noraskosen",
+      "series": "The Sibling Bond",
+      "homeland": "Taurenor, Alvena",
+      "currentHome": "Taurenor, Alvena",
+      "species": "Elf",
+      "hairColor": "blonde",
+      "eyeColor": "blue",
+      "favColor": "pink",
+      "age": { "$numberInt": "2020" },
+      "siblings": ["Amerond", "Næsalia", "Elethial"]
+    },
+    {
+      "firstname": "Seth",
+      "lastname": "Sorenson",
+      "series": "Fablehaven",
+      "homeland": "Rochester, New York",
+      "currentHome": "Fablehaven, Connecticut",
+      "species": "Man",
+      "hairColor": "brown",
+      "eyeColor": "blue",
+      "favColor": "dark green",
+      "age": { "$numberInt": "14" },
+      "siblings": ["Kendra"]
+    },
+    {
+      "firstname": "Elrond",
+      "lastname": "Half-Elven",
+      "series": "Middle Earth",
+      "homeland": "Valinor",
+      "currentHome": "Imladris",
+      "species": "Elf",
+      "hairColor": "brown",
+      "eyeColor": "blue",
+      "favColor": "blue",
+      "age": { "$numberInt": "5000" },
+      "siblings": ["Elros", "Elladan"]
+    }
+  ]
+}
