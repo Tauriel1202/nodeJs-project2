@@ -77,6 +77,32 @@
       "favColor": "beskar, red, and gold",
       "age": { "$numberInt": "40" },
       "siblings": ["unknown"]
+    },
+    {
+      "firstname": "Honor",
+      "lastname": "Pemberton",
+      "series": ["Five Kingdoms"],
+      "homeland": "Junction City",
+      "currentHome": "Junction City",
+      "species": "Man",
+      "hairColor": "brown",
+      "eyeColor": "blue",
+      "favColor": "green",
+      "age": { "$numberInt": "16" },
+      "siblings": ["Elegance", "Constance", "Miracle", "Destiny"]
+    },
+    {
+      "firstname": "Legolas",
+      "lastname": "Greenleaf",
+      "series": ["The Lord of the Rings", "The Hobbit"],
+      "homeland": "Mirkwood",
+      "currentHome": "Mirkwood",
+      "species": "Elf",
+      "hairColor": "blonde",
+      "eyeColor": "blue",
+      "favColor": "green and grey",
+      "age": { "$numberInt": "2900" },
+      "siblings": []
     }
   ]
 }

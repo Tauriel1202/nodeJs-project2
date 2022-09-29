@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Week 5 Node.js project: Characters",
+    "title": "Week 5-8 Node.js project: Characters and Quotes",
     "description": "Presenting: Characters! See their stats: names, series, appearances, and homelands. Now, with sibings!",
     "version": "1.0.0"
   },
@@ -220,7 +220,7 @@
     },
     "/quotes/{id}": {
       "get": {
-        "description": "Find One Character!",
+        "description": "Find One Quote!",
         "parameters": [
           {
             "name": "id",
