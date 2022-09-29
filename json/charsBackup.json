@@ -103,6 +103,19 @@
       "favColor": "green and grey",
       "age": { "$numberInt": "2900" },
       "siblings": []
+    },
+    {
+      "firstname": "Durin IV",
+      "lastname": "",
+      "series": ["The Rings of Power"],
+      "homeland": "Khazad-dum, Moria",
+      "currentHome": "Khazad-dum, Moria",
+      "species": "Dwarf",
+      "hairColor": "red",
+      "eyeColor": "blue",
+      "favColor": "red and mithril",
+      "age": { "$numberInt": "" },
+      "siblings": []
     }
   ]
 }

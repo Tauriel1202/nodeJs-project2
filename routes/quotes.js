@@ -1,12 +1,21 @@
 //route for quotes
 const routes = require("express").Router();
 const quotes = require("../controllers/quotes");
-console.log(quotes)
+console.log(quotes);
 
-const getQuotes = quotes.getQuotes;
-routes.get("/", getQuotes);
+//get
+routes.get("/", quotes.getQuotes);
 
-const addQuote = quotes.addQuote;
-routes.post("/", addQuote);
+//add
+routes.post("/", quotes.addQuote);
+
+//get one
+routes.get("/:id", quotes.oneQuote);
+
+//update
+routes.put('/:id', quotes.updateQuote)
+
+//delete
+routes.delete('/:id', quotes.deleteQuote)
 
 module.exports = routes;

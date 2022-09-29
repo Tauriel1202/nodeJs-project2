@@ -21,20 +21,77 @@ Content-Type: application/json
       "siblings": []
     }
 
+### Get One Char
+GET http://localhost:3000/characters/6333c354481a3942fe570294
+
+
+### Update Char
+PUT http://localhost:3000/characters/6333c354481a3942fe570294
+Content-Type: application/json
+
+{
+  "firstname": "Mæthóriel",
+  "lastname": "Noraskosen",
+  "series": [
+    "The Sibling Bond"
+  ],
+  "homeland": "Taurenor, Alvena",
+  "currentHome": "Taurenor, Alvena",
+  "species": "Elf",
+  "hairColor": "blonde",
+  "eyeColor": "blue",
+  "favColor": "pink",
+  "age": {
+    "$numberInt": "2020"
+  },
+  "siblings": [
+    "Amerond",
+    "Næsalia",
+    "Elethial"
+  ]
+    }
+
+### Delete Char
+DELETE  http://localhost:3000/characters/633528152609e4932f66e5df
+
+//Quotes
 ### All Quotes
 GET http://localhost:3000/quotes
 
-
 ###Add a Quote
 POST http://localhost:3000/quotes
+Content-Type: application/json
 
+ {
+  "_id": "6333b7aa5b1ea23036c26897",
+  "quote": "Delete this quote",
+  "author": "Please Remove",
+  "loc": "Get off my dirt"
+  }
+
+### Get One Quote
+GET http://localhost:3000/quotes/6336011008a0e23769dea90c
+
+### Update a Quote
+PUT http://localhost:3000/quotes/6333b7aa5b1ea23036c26897
+Content-Type: application/json
+
+ {
+    "_id": "6333b7aa5b1ea23036c26897",
+    "quote": "Maybe the paths we each shall tread are already laid before our feet though we do not see them.",
+    "author": "Galadriel",
+    "loc": "Lothlorien, Fellowship of the Ring"
+  }
+
+### Delete a Quote
+DELETE  http://localhost:3000/quotes/6336011008a0e23769dea90c
 
 //Render
-
-GET http://https://tauriel341-project2.onrender.com/characters
+###All Chars
+GET https://tauriel341-project2.onrender.com/characters
 
 ###Add a Char
-POST http://https://tauriel341-project2.onrender.com/characters 
+POST http://tauriel341-project2.onrender.com/characters 
 Content-Type: application/json
 
 {
@@ -51,9 +108,67 @@ Content-Type: application/json
       "siblings": []
     }
 
-### All Quotes
-GET http://https://tauriel341-project2.onrender.com/quotes
+### Get One Char
+GET http://tauriel341-project2.onrender.com/characters/6333c354481a3942fe570294
 
+
+### Update Char
+PUT http://tauriel341-project2.onrender.com/characters/6333c354481a3942fe570294
+Content-Type: application/json
+
+{
+  "firstname": "Mæthóriel",
+  "lastname": "Noraskosen",
+  "series": [
+    "The Sibling Bond"
+  ],
+  "homeland": "Taurenor, Alvena",
+  "currentHome": "Taurenor, Alvena",
+  "species": "Elf",
+  "hairColor": "blonde",
+  "eyeColor": "blue",
+  "favColor": "pink",
+  "age": {
+    "$numberInt": "2020"
+  },
+  "siblings": [
+    "Amerond",
+    "Næsalia",
+    "Elethial"
+  ]
+    }
+
+### Delete Char
+DELETE  http://tauriel341-project2.onrender.com/characters/633528152609e4932f66e5df
+
+//Quotes
+### All Quotes
+GET http://tauriel341-project2.onrender.com/quotes
 
 ###Add a Quote
-POST http://https://tauriel341-project2.onrender.com/quotes
+POST http://tauriel341-project2.onrender.com/quotes
+Content-Type: application/json
+
+ {
+  "_id": "6333b7aa5b1ea23036c26897",
+  "quote": "Delete this quote",
+  "author": "Please Remove",
+  "loc": "Get off my dirt"
+  }
+
+### Get One Quote
+GET http://tauriel341-project2.onrender.com/quotes/6336011008a0e23769dea90c
+
+### Update a Quote
+PUT http://tauriel341-project2.onrender.com/quotes/6333b7aa5b1ea23036c26897
+Content-Type: application/json
+
+ {
+    "_id": "6333b7aa5b1ea23036c26897",
+    "quote": "Maybe the paths we each shall tread are already laid before our feet though we do not see them.",
+    "author": "Galadriel",
+    "loc": "Lothlorien, Fellowship of the Ring"
+  }
+
+### Delete a Quote
+DELETE  http://tauriel341-project2.onrender.com/quotes/6336011008a0e23769dea90c

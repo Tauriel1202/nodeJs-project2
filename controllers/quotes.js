@@ -30,5 +30,58 @@ async function addQuote(req, res) {
     });
 }
 
+async function oneQuote(req, res) {
+  try {
+    await base
+      .findOne({
+        _id: new ObjectId(req.params.id),
+      })
+      .then((quote) => {
+        console.log(quote);
+        res.status(200).send(quote);
+      });
+  } catch (e) {
+    console.log(`⛔ ${e} ⛔`);
+  }
+}
 
-module.exports = { getQuotes, addQuote }
+async function updateQuote(req, res) {
+  try {
+    await base
+      .updateOne(
+        {
+          _id: new ObjectId(req.params.id),
+        },
+        {
+          $set: {
+            quote: req.body.quote,
+            author: req.body.author,
+            loc: req.body.loc,
+          },
+        }
+      )
+      .then((quote) => {
+        console.log(quote);
+        res.status(204).send(quote);
+      });
+  } catch (e) {
+    console.log(`⛔ ${e} ⛔`);
+  }
+}
+
+async function deleteQuote(req, res) {
+  try {
+    await base
+      .deleteOne({
+        _id: new ObjectId(req.params.id),
+      })
+      .then((quote) => {
+        console.log(quote);
+        res.status(200).send(quote);
+      });
+  } catch (e) {
+    console.log(`⛔ ${e} ⛔`);
+  }
+}
+
+module.exports = { getQuotes, addQuote, oneQuote, updateQuote, deleteQuote };

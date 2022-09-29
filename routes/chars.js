@@ -1,13 +1,20 @@
-const routes = require('express').Router();
-const chars = require('../controllers/chars');
+const routes = require("express").Router();
+const chars = require("../controllers/chars");
 console.log(chars);
 
-//get functions
-const getAll = chars.getAll;
-routes.get('/', getAll);
+//get all
+routes.get("/", chars.getAll);
 
-//add function
-const addChar = chars.addChar;
-routes.post('/', addChar)
+//add 
+routes.post("/", chars.addChar);
+
+//get one
+routes.get("/:id", chars.getChar);
+
+//update
+routes.put('/:id', chars.updateChar)
+
+//delete
+routes.delete('/:id', chars.deleteChar)
 
 module.exports = routes;
