@@ -21,7 +21,8 @@ async function getAll(req, res) {
         res.status(200).send(all);
       });
   } catch (e) {
-    res.send(`🚫 ${e} 🚫`);
+    console.log(`🚫 ${e} 🚫`)
+    res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -58,7 +59,7 @@ async function addChar(req, res) {
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
-    res.send(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -81,7 +82,7 @@ async function getChar(req, res) {
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
-    res.send(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -125,7 +126,7 @@ async function updateChar(req, res) {
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
-    res.send(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -136,7 +137,7 @@ async function deleteChar(req, res) {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  
+
   try {
     await base
       .deleteOne({
@@ -148,7 +149,7 @@ async function deleteChar(req, res) {
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
-    res.send(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
 

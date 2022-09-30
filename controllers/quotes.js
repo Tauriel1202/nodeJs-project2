@@ -23,7 +23,7 @@ async function getQuotes(req, res, next) {
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
-    res.send(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -48,7 +48,7 @@ async function addQuote(req, res) {
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
-    res.send(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -71,7 +71,7 @@ async function oneQuote(req, res) {
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
-    res.send(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -103,7 +103,7 @@ async function updateQuote(req, res) {
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
-    res.send(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -114,7 +114,7 @@ async function deleteQuote(req, res) {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  
+
   try {
     await base
       .deleteOne({
@@ -126,7 +126,7 @@ async function deleteQuote(req, res) {
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
-    res.send(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
 
