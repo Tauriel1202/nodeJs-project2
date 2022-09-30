@@ -29,6 +29,10 @@ async function addChar(req, res) {
   const errors = validationResult(req);
   console.log(errors);
 
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     await base
       .insertOne({
@@ -59,6 +63,13 @@ async function addChar(req, res) {
 }
 
 async function getChar(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     await base
       .findOne({
@@ -77,6 +88,10 @@ async function getChar(req, res) {
 async function updateChar(req, res) {
   const errors = validationResult(req);
   console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
   try {
     await base
@@ -115,6 +130,13 @@ async function updateChar(req, res) {
 }
 
 async function deleteChar(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  
   try {
     await base
       .deleteOne({

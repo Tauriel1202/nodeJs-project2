@@ -8,7 +8,7 @@ function errorReturn(req, res, char) {
     return res.status(400).json({ errors: errors.array() });
   } else {
     res.status(200);
-    res.send("💩 Carry on... 🌴");
+    res.send("🌊 Carry on... 🌴");
   }
 }
 

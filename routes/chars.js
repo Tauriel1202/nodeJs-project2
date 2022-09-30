@@ -14,34 +14,29 @@ routes.get("/", chars.getAll);
 routes.post(
   "/",
   errorChecker.charCheck,
-  errorChecker.errorReturn,
+  // errorChecker.errorReturn,
   chars.addChar
 );
 
 //get one
 routes.get(
   "/:id",
-  // errorChecker.idTester,
+  errorChecker.idTester,
   chars.getChar
 );
 
 //update
 routes.put(
   "/:id",
-  // errorChecker.idTester,
-  // errorChecker.charCheck,
-  // errorChecker.errorReturn,
+  errorChecker.idTester,
+  errorChecker.charCheck,
   chars.updateChar,
-
-  // errorChecker.idTester,
-  // errorChecker.charCheck,
-  // errorChecker.errorReturn
 );
 
 //delete
 routes.delete(
   "/:id",
-  // errorChecker.idTester,
+  errorChecker.idTester,
   chars.deleteChar
 );
 
