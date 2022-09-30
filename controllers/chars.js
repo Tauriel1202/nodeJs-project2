@@ -1,11 +1,9 @@
 //functions for chars collection
-// const { body } = require("express-validator");
-//import vals
-const { addCharVal, getCharVal, updateCharVal, deleteCharVal } = require("../validation");
+const { validationResult } = require("express-validator");
 
 //connect to client
 const { MongoClient, ObjectId } = require("mongodb");
-const { body } = require("express-validator");
+const { charCheck, errorReturn, idTester } = require("../validation");
 const uri = process.env.MONGO_URI.replace("cse341-project2", "chars");
 const client = new MongoClient(uri);
 const base = client.db("cse341-project2").collection("chars");
@@ -28,6 +26,9 @@ async function getAll(req, res) {
 }
 
 async function addChar(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
   try {
     await base
       .insertOne({
@@ -44,8 +45,10 @@ async function addChar(req, res) {
         siblings: req.body.siblings,
       })
       .then((char) => {
-        addCharVal(char);
-        // body(char.species).isLength({min: 3, max: 20});
+        //If it breaks again, turn these back on.
+        // charCheck;
+        // errorReturn();
+
         console.log(char);
         res.status(201).send(char);
       });
@@ -62,7 +65,6 @@ async function getChar(req, res) {
         _id: new ObjectId(req.params.id),
       })
       .then((char) => {
-        getCharVal();
         console.log(char);
         res.status(200).send(char);
       });
@@ -73,6 +75,9 @@ async function getChar(req, res) {
 }
 
 async function updateChar(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
   try {
     await base
       .updateOne(
@@ -96,7 +101,10 @@ async function updateChar(req, res) {
         }
       )
       .then((char) => {
-        updateCharVal();
+        // idTester;
+        // charCheck;
+        // errorReturn();
+
         console.log(char);
         res.status(204).send(char);
       });
@@ -113,13 +121,12 @@ async function deleteChar(req, res) {
         _id: new ObjectId(req.params.id),
       })
       .then((char) => {
-        deleteCharVal();
         console.log(char);
         res.status(200).send(char);
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
-    res.send(`🚫 ${e} 🚫`)
+    res.send(`🚫 ${e} 🚫`);
   }
 }
 

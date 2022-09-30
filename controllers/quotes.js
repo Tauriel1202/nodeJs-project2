@@ -1,5 +1,8 @@
 //functions for quotes collection
+//val
+const errorChecker = require("../validation");
 
+//connect to base
 const { MongoClient, ObjectId } = require("mongodb");
 const uri = process.env.MONGO_URI.replace("cse341-project2", "quotes");
 const client = new MongoClient(uri);
@@ -7,27 +10,41 @@ const base = client.db("cse341-project2").collection("quotes");
 
 console.log("Quotes Controllers: ");
 
+//mongodb functions
 async function getQuotes(req, res, next) {
-  await base
-    .find()
-    .toArray()
-    .then((all) => {
-      console.log(all);
-      res.status(200).send(all);
-    });
+  try {
+    await base
+      .find()
+      .toArray()
+      .then((all) => {
+        console.log(all);
+        res.status(200).send(all);
+      });
+  } catch (e) {
+    console.log(`🚫 ${e} 🚫`);
+    res.send(`🚫 ${e} 🚫`);
+  }
 }
 
 async function addQuote(req, res) {
-  await base
-    .insertOne({
-      quote: req.body.quote,
-      author: req.body.author,
-      loc: req.body.loc,
-    })
-    .then((quote) => {
-      console.log(quote);
-      res.status(201).send(quote);
-    });
+  try {
+    await base
+      .insertOne({
+        quote: req.body.quote,
+        author: req.body.author,
+        loc: req.body.loc,
+      })
+      .then((quote) => {
+        errorChecker.quoteCheck;
+        errorChecker.errorReturn();
+
+        console.log(quote);
+        res.status(201).send(quote);
+      });
+  } catch (e) {
+    console.log(`🚫 ${e} 🚫`);
+    res.send(`🚫 ${e} 🚫`);
+  }
 }
 
 async function oneQuote(req, res) {
@@ -41,7 +58,8 @@ async function oneQuote(req, res) {
         res.status(200).send(quote);
       });
   } catch (e) {
-    console.log(`⛔ ${e} ⛔`);
+    console.log(`🚫 ${e} 🚫`);
+    res.send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -65,7 +83,8 @@ async function updateQuote(req, res) {
         res.status(204).send(quote);
       });
   } catch (e) {
-    console.log(`⛔ ${e} ⛔`);
+    console.log(`🚫 ${e} 🚫`);
+    res.send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -80,7 +99,8 @@ async function deleteQuote(req, res) {
         res.status(200).send(quote);
       });
   } catch (e) {
-    console.log(`⛔ ${e} ⛔`);
+    console.log(`🚫 ${e} 🚫`);
+    res.send(`🚫 ${e} 🚫`);
   }
 }
 

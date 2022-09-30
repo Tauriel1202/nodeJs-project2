@@ -8,17 +8,17 @@ POST http://localhost:3000/characters
 Content-Type: application/json
 
 {
-      "firstname": "",
-      "lastname": "fg",
-      "series": "p",
-      "homeland": "d",
-      "currentHome": "f",
-      "species": "g",
-      "hairColor": "red",
-      "eyeColor": "d",
-      "favColor": "forest green",
-      "age": { "$numberInt": "600" },
-      "siblings": []
+      "firstname": "Meren",
+      "lastname": "Noldotor",
+      "series": ["The Sibling Bond"],
+      "homeland": "Lamond",
+      "currentHome": "Lamond",
+      "species": "Man",
+      "hairColor": "black",
+      "eyeColor": "black",
+      "favColor": "Orange",
+      "age": 20,
+      "siblings": [""]
     }
 
 ### Get One Char
@@ -26,33 +26,41 @@ GET http://localhost:3000/characters/6333b7674aa3c30d33c54d7c
 
 
 ### Update Char
-PUT http://localhost:3000/characters/6333c3
+PUT http://localhost:3000/characters/6337423a45dd83d4b248f054
 Content-Type: application/json
 
-{
-  "firstname": "Mæthóriel",
-  "lastname": "Noraskosen",
-  "series": [
-    "The Sibling Bond"
-  ],
-  "homeland": "Taurenor, Alvena",
-  "currentHome": "Taurenor, Alvena",
-  "species": "Elf",
-  "hairColor": "blonde",
-  "eyeColor": "blue",
-  "favColor": "pink",
-  "age": {
-    "$numberInt": "2020"
-  },
-  "siblings": [
-    "Amerond",
-    "Næsalia",
-    "Elethial"
-  ]
-    }
+# {
+#   "firstname": "",
+#   "lastname": "Gamgee",
+#   "series": [
+#     "The Lord of the Rings"
+#   ],
+#   "homeland": "The Shire",
+#   "currentHome": "The Shire",
+#   "species": "Hobbit",
+#   "hairColor": "dirty blonde",
+#   "eyeColor": "brown",
+#   "favColor": "green",
+#   "age": 50,
+#   "siblings": []
+#     }
+
+{"firstname": "Amberle",
+    "lastname": "Elessedil",
+    "series": [
+      "The Elfstones of Shannara"
+    ],
+    "homeland": "Arborlon",
+    "currentHome": "Arborlon",
+    "species": "Elf",
+    "hairColor": "chestnut",
+    "eyeColor": "green",
+    "favColor": "orange",
+    "age": 18,
+    "siblings": []}
 
 ### Delete Char
-DELETE  http://localhost:3000/characters/63372d176617ff60ffb4ff38
+DELETE  http://localhost:3000/characters/633749501175e1a892546a3f
 
 //Quotes
 ### All Quotes
@@ -70,10 +78,10 @@ Content-Type: application/json
   }
 
 ### Get One Quote
-GET http://localhost:3000/quotes/6336011008a0e23769dea90c
+GET http://localhost:3000/quotes/633528542609e4932f66e5e0
 
 ### Update a Quote
-PUT http://localhost:3000/quotes/6333b7aa5b1ea23036c26897
+PUT http://localhost:3000/quotes/633528542609e4932f66e5e0
 Content-Type: application/json
 
  {
