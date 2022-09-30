@@ -8,25 +8,25 @@ POST http://localhost:3000/characters
 Content-Type: application/json
 
 {
-      "firstname": "Tauriel",
-      "lastname": "Greenleaf",
-      "series": "Middle Earth",
-      "homeland": "Mirkwood",
-      "currentHome": "Mirkwood",
-      "species": "Elf",
+      "firstname": "",
+      "lastname": "fg",
+      "series": "p",
+      "homeland": "d",
+      "currentHome": "f",
+      "species": "g",
       "hairColor": "red",
-      "eyeColor": "green",
+      "eyeColor": "d",
       "favColor": "forest green",
       "age": { "$numberInt": "600" },
       "siblings": []
     }
 
 ### Get One Char
-GET http://localhost:3000/characters/6333c354481a3942fe570294
+GET http://localhost:3000/characters/6333b7674aa3c30d33c54d7c
 
 
 ### Update Char
-PUT http://localhost:3000/characters/6333c354481a3942fe570294
+PUT http://localhost:3000/characters/6333c3
 Content-Type: application/json
 
 {
@@ -52,7 +52,7 @@ Content-Type: application/json
     }
 
 ### Delete Char
-DELETE  http://localhost:3000/characters/633528152609e4932f66e5df
+DELETE  http://localhost:3000/characters/63372d176617ff60ffb4ff38
 
 //Quotes
 ### All Quotes

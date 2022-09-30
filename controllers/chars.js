@@ -1,11 +1,18 @@
 //functions for chars collection
+// const { body } = require("express-validator");
+//import vals
+const { addCharVal, getCharVal, updateCharVal, deleteCharVal } = require("../validation");
+
+//connect to client
 const { MongoClient, ObjectId } = require("mongodb");
+const { body } = require("express-validator");
 const uri = process.env.MONGO_URI.replace("cse341-project2", "chars");
 const client = new MongoClient(uri);
 const base = client.db("cse341-project2").collection("chars");
 
 console.log("Chars Controllers: ");
 
+//mongodb functions
 async function getAll(req, res) {
   try {
     await base
@@ -16,7 +23,7 @@ async function getAll(req, res) {
         res.status(200).send(all);
       });
   } catch (e) {
-    console.log(`🚫 ${e} 🚫`);
+    res.send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -37,11 +44,14 @@ async function addChar(req, res) {
         siblings: req.body.siblings,
       })
       .then((char) => {
+        addCharVal(char);
+        // body(char.species).isLength({min: 3, max: 20});
         console.log(char);
         res.status(201).send(char);
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
+    res.send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -52,11 +62,13 @@ async function getChar(req, res) {
         _id: new ObjectId(req.params.id),
       })
       .then((char) => {
+        getCharVal();
         console.log(char);
         res.status(200).send(char);
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
+    res.send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -84,11 +96,13 @@ async function updateChar(req, res) {
         }
       )
       .then((char) => {
+        updateCharVal();
         console.log(char);
         res.status(204).send(char);
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
+    res.send(`🚫 ${e} 🚫`);
   }
 }
 
@@ -99,11 +113,13 @@ async function deleteChar(req, res) {
         _id: new ObjectId(req.params.id),
       })
       .then((char) => {
+        deleteCharVal();
         console.log(char);
         res.status(200).send(char);
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
+    res.send(`🚫 ${e} 🚫`)
   }
 }
 
