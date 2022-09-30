@@ -71,28 +71,26 @@ POST http://localhost:3000/quotes
 Content-Type: application/json
 
  {
-  "_id": "6333b7aa5b1ea23036c26897",
-  "quote": "Delete this quote",
-  "author": "Please Remove",
-  "loc": "Get off my dirt"
+  "quote": "Get off my dirt!",
+  "author": "King Rowan",
+  "loc": "Cinderella 2021"
   }
 
 ### Get One Quote
-GET http://localhost:3000/quotes/633528542609e4932f66e5e0
+GET http://localhost:3000/quotes/6333b7aa5b1ea23036c26897
 
 ### Update a Quote
-PUT http://localhost:3000/quotes/633528542609e4932f66e5e0
+PUT http://localhost:3000/quotes/6333b7aa5b1ea23036c26897
 Content-Type: application/json
 
  {
-    "_id": "6333b7aa5b1ea23036c26897",
     "quote": "Maybe the paths we each shall tread are already laid before our feet though we do not see them.",
-    "author": "Galadriel",
+    "author": "Lady Galadriel",
     "loc": "Lothlorien, Fellowship of the Ring"
   }
 
 ### Delete a Quote
-DELETE  http://localhost:3000/quotes/6336011008a0e23769dea90c
+DELETE  http://localhost:3000/quotes/633764d4bfb0cb85ba052717
 
 //Render
 ###All Chars

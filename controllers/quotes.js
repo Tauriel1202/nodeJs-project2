@@ -1,6 +1,7 @@
 //functions for quotes collection
 //val
 const errorChecker = require("../validation");
+const { validationResult } = require('express-validator')
 
 //connect to base
 const { MongoClient, ObjectId } = require("mongodb");
@@ -27,6 +28,13 @@ async function getQuotes(req, res, next) {
 }
 
 async function addQuote(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     await base
       .insertOne({
@@ -35,9 +43,6 @@ async function addQuote(req, res) {
         loc: req.body.loc,
       })
       .then((quote) => {
-        errorChecker.quoteCheck;
-        errorChecker.errorReturn();
-
         console.log(quote);
         res.status(201).send(quote);
       });
@@ -48,6 +53,13 @@ async function addQuote(req, res) {
 }
 
 async function oneQuote(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     await base
       .findOne({
@@ -64,6 +76,13 @@ async function oneQuote(req, res) {
 }
 
 async function updateQuote(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     await base
       .updateOne(
@@ -89,6 +108,13 @@ async function updateQuote(req, res) {
 }
 
 async function deleteQuote(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  
   try {
     await base
       .deleteOne({

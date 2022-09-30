@@ -10,20 +10,26 @@ const errorChecker = require("../validation");
 routes.get("/", quotes.getQuotes);
 
 //add
-routes.post(
-  "/",
+routes.post("/",
   errorChecker.quoteCheck,
-  errorChecker.errorReturn,
-  quotes.addQuote
-);
+  quotes.addQuote);
 
 //get one
-routes.get("/:id", quotes.oneQuote);
+routes.get("/:id",
+  errorChecker.idTester,
+  quotes.oneQuote);
 
 //update
-routes.put("/:id", errorChecker.quoteCheck, errorChecker.errorReturn, quotes.updateQuote);
+routes.put(
+  "/:id",
+  errorChecker.idTester,
+  errorChecker.quoteCheck,
+  quotes.updateQuote
+);
 
 //delete
-routes.delete("/:id", quotes.deleteQuote);
+routes.delete("/:id",
+  errorChecker.idTester,
+  quotes.deleteQuote);
 
 module.exports = routes;
