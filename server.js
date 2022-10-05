@@ -19,14 +19,14 @@ app.get("/auth", (req, res) => {
   res.redirect(`${githubAuthUrl}${process.env.GITHUB_ID}`);
 });
 
-//login url and header
-app.get("/loggedIn", async (req, res) => {
-  const token = req.query.access_token;
+//logged in
+app.get("/success", async (req, res) => {
+  const access_token = req.query.access_token;
   const result = await axios({
     method: "get",
     url: "https://api.github.com/user",
     headers: {
-      Authorization: `token ` + token,
+      Authorization: `token ` + access_token,
     },
   })
     .then((_response) => {
@@ -61,19 +61,18 @@ app.get("/loginauth", async (req, res) => {
     },
   };
 
-  //logged in
+ 
   axios
     .post("https://github.com/login/oauth/access_token", body, options)
-    .then((res) => res.data.token)
-    .then((token) => {
-      if (!token) {
+    .then((res) => res.data.access_token)
+    .then((access_token) => {
+      if (!access_token) {
+        console.log('💩')
         return;
       } else {
-        console.log('🌴🌊')
-        
-        return res.redirect(
-          "http://localhost:3000/loggedIn?token=" + token
-          );
+        console.log('🌴🌊')     
+        res.redirect("http://localhost:3000/api-docs")   
+        // app.use("/", require("./routes"));
         }
       });
       
@@ -94,8 +93,7 @@ app.use((req, res, next) => {
   });
 
   //routes
-  app.use("/", require("./routes"));
-// app.use("/", require("./routes"));
+app.use("/", require("./routes"));
 
 //port
 const port = process.env.port || 3000;
