@@ -11,18 +11,9 @@
   "securityDefinitions": {
     "oauth": {
       "type": "oauth2",
-      "authorizationUrl": "https://tauriel341-project2.onrender.com/api-docs/auth",
-      "flow": "implicit",
-      "scopes": {
-        "read:chars": "read character data",
-        "read:quotes": "read quote data",
-        "write:chars": "modify character data",
-        "write:quotes": "modify quote data"
-      }
+      "authorizationUrl": "auth",
+      "flow": "authorizationCode"
     }
-  },
-  "security": {
-    
   },
   "paths": {
     "/characters/": {

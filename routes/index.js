@@ -12,21 +12,20 @@ routes.use("/", swagger);
 
 //chars route
 const chars = require("./chars");
-// routes.use("/characters", chars);
+routes.use("/characters", chars);
 
 //quotes routes
 const quotes = require("./quotes");
 routes.use("/quotes", quotes);
 
 //graphql
-routes.use(
-  "/graphql",
-  graphqlHTTP({
-    schema: null,
-    schema,
-    graphiql: true,
-  })
-);
+// routes.use(
+//   "/graphql",
+//   graphqlHTTP({
+//     schema:schema,
+//     graphiql: true,
+//   })
+// );
 
 //export
 module.exports = routes;
