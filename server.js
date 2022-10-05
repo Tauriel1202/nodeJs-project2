@@ -14,13 +14,13 @@ dotenv.config();
 const axios = require("axios");
 const githubAuthUrl = "https://github.com/login/oauth/authorize?client_id=";
 
+//redirect to github signin
 app.get("/auth", (req, res) => {
-  console.log('🍃')
   res.redirect(`${githubAuthUrl}${process.env.GITHUB_ID}`);
 });
 
+//login url and header
 app.get("/loggedIn", async (req, res) => {
-  console.log('🏹')
   const token = req.query.access_token;
   const result = await axios({
     method: "get",
@@ -38,16 +38,16 @@ app.get("/loggedIn", async (req, res) => {
     })
     .catch((error) => {
       return {
-        status: error.response.status,
+        status: error.res.status,
         message: error.message,
       };
     });
 
-  response.status(result.status).send(result);
+  res.status(result.status).send(result);
 });
 
+//log in creds
 app.get("/authLogin", async (req, res) => {
-  console.log('🌊')
   const code = req.query.code;
   const body = {
     client_id: process.env.GITHUB_ID,
@@ -61,6 +61,7 @@ app.get("/authLogin", async (req, res) => {
     },
   };
 
+  //logged in
   axios
     .post("https://github.com/login/oauth/access_token", body, options)
     .then((res) => res.data.token)
@@ -68,14 +69,14 @@ app.get("/authLogin", async (req, res) => {
       if (!token) {
         return;
       } else {
-        return response.redirect(
-          "http://localhost:3000/loggedIn?access_token=" + token
+        console.log('🌴🌊')
+        return res.redirect(
+          "http://localhost:3000/loggedIn?token=" + token
         );
       }
     });
-  
-  console.log('🌴')
-  response.send();
+
+  res.send();
 });
 
 //body-parser
