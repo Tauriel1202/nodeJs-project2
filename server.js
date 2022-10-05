@@ -15,10 +15,12 @@ const axios = require("axios");
 const githubAuthUrl = "https://github.com/login/oauth/authorize?client_id=";
 
 app.get("/auth", (req, res) => {
+  console.log('🍃')
   res.redirect(`${githubAuthUrl}${process.env.GITHUB_ID}`);
 });
 
 app.get("/loggedIn", async (req, res) => {
+  console.log('🏹')
   const token = req.query.access_token;
   const result = await axios({
     method: "get",
@@ -45,10 +47,11 @@ app.get("/loggedIn", async (req, res) => {
 });
 
 app.get("/authLogin", async (req, res) => {
+  console.log('🌊')
   const code = req.query.code;
   const body = {
-    client_id: process.dotenv.GITHUB_ID,
-    client_secret: process.dotenv.GITHUB_SECRET,
+    client_id: process.env.GITHUB_ID,
+    client_secret: process.env.GITHUB_SECRET,
     code,
   };
 
@@ -66,11 +69,12 @@ app.get("/authLogin", async (req, res) => {
         return;
       } else {
         return response.redirect(
-          "http://localhost:3000/loggedIn?token=" + token
+          "http://localhost:3000/loggedIn?access_token=" + token
         );
       }
     });
-
+  
+  console.log('🌴')
   response.send();
 });
 

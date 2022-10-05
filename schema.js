@@ -10,7 +10,7 @@ const {
 } = graphql;
 
 const charType = new GraphQLObjectType({
-  name: "char",
+  name: "characters",
   fields: () => ({
     _id: { type: graphql.GraphQLID },
     firstname: { type: GraphQLString },
