@@ -47,7 +47,7 @@ app.get("/loggedIn", async (req, res) => {
 });
 
 //log in creds
-app.get("/authLogin", async (req, res) => {
+app.get("/loginauth", async (req, res) => {
   const code = req.query.code;
   const body = {
     client_id: process.env.GITHUB_ID,
@@ -70,12 +70,13 @@ app.get("/authLogin", async (req, res) => {
         return;
       } else {
         console.log('🌴🌊')
+        
         return res.redirect(
           "http://localhost:3000/loggedIn?token=" + token
-        );
-      }
-    });
-
+          );
+        }
+      });
+      
   res.send();
 });
 
@@ -88,12 +89,13 @@ app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, DELETE, OPTIONS"
-  );
-  next();
-});
+    );
+    next();
+  });
 
-//routes
-app.use("/", require("./routes"));
+  //routes
+  app.use("/", require("./routes"));
+// app.use("/", require("./routes"));
 
 //port
 const port = process.env.port || 3000;

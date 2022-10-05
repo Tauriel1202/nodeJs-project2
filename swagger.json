@@ -11,7 +11,7 @@
   "securityDefinitions": {
     "oauth": {
       "type": "oauth2",
-      "authorizationUrl": "authLogin",
+      "authorizationUrl": "loginauth",
       "flow": "authorizationCode"
     }
   },
