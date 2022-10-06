@@ -19,13 +19,13 @@ const quotes = require("./quotes");
 routes.use("/quotes", quotes);
 
 //graphql
-// routes.use(
-//   "/graphql",
-//   graphqlHTTP({
-//     schema:schema,
-//     graphiql: true,
-//   })
-// );
+routes.use(
+  "/graphql",
+  graphqlHTTP({
+    schema:schema,
+    graphiql: true,
+  })
+);
 
 //export
 module.exports = routes;

@@ -34,7 +34,7 @@ app.get("/loginauth", async (req, res) => {
     },
   };
 
-  axios
+  await axios
     .post("https://github.com/login/oauth/access_token", body, options)
     .then((res) => res.data.access_token)
     .then((access_token) => {
@@ -48,32 +48,39 @@ app.get("/loginauth", async (req, res) => {
         // res.headersSent
         // res.send(`<a href="http://localhost:3000/success">Continue</a><br><a href="http://localhost:3000/api-docs">Go to Docs</a>`)
         return res.redirect(
-          "http://tauriel341-project2/success?access_token=" + access_token
+          // "http://tauriel341-project2/success?access_token=" + access_token
+          'http://localhost:3000/success?access_token=' + access_token
         );
         // app.use("/", require("./routes"));
       }
     });
-  // res.send(`<a href="http://localhost:3000/success">Continue</a><br><a href="http://localhost:3000/api-docs">Go to Docs</a>`)
+    res.send()
+  // res.send(
+  //   `<a href="http://localhost:3000/success">Continue</a><br><a href="http://localhost:3000/api-docs">Go to Docs</a>`
+  // );
 });
 
 //logged in
 app.get("/success", async (req, res) => {
+  console.log('👀')
   const access_token = req.query.access_token;
-  const result = await axios({
+  const result = axios({
     method: "get",
     url: "https://api.github.com/user",
     headers: {
       Authorization: `Bearer OAUTH-TOKEN` + access_token,
     },
   })
-    .then((_response) => {
+    .then((res) => {
+      console.log('🧝‍♀️')
       return {
-        status: _response.status,
-        message: _response.statusText,
-        data: _response.data,
+        status: res.status,
+        message: res.statusText,
+        data: res.data,
       };
     })
     .catch((error) => {
+      console.log('⚠')
       return {
         status: error.status,
         message: error.message,
