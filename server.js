@@ -19,33 +19,6 @@ app.get("/auth", (req, res) => {
   res.redirect(`${githubAuthUrl}${process.env.GITHUB_ID}`);
 });
 
-//logged in
-app.get("/success", async (req, res) => {
-  const access_token = req.query.access_token;
-  const result = await axios({
-    method: "get",
-    url: "https://api.github.com/user",
-    headers: {
-      Authorization: `token ` + access_token,
-    },
-  })
-    .then((_response) => {
-      return {
-        status: _response.status,
-        message: _response.statusText,
-        data: _response.data,
-      };
-    })
-    .catch((error) => {
-      return {
-        status: error.res.status,
-        message: error.message,
-      };
-    });
-
-  res.status(result.status).send(result);
-});
-
 //log in creds
 app.get("/loginauth", async (req, res) => {
   const code = req.query.code;
@@ -61,24 +34,53 @@ app.get("/loginauth", async (req, res) => {
     },
   };
 
- 
   axios
     .post("https://github.com/login/oauth/access_token", body, options)
     .then((res) => res.data.access_token)
     .then((access_token) => {
+      console.log(access_token);
       if (!access_token) {
-        console.log('💩')
+        console.log("💩");
         return;
       } else {
-        console.log('🌴🌊')     
-        res.redirect("http://localhost:3000/api-docs")   
+        console.log("🌴🌊");
+        // res.send(`<a href="http://localhost:3000/success?access_token="`+ access_token + `>Continue</a>`)
+        // res.headersSent
+        return res.redirect(
+          "http://localhost:3000/success?access_token=" + access_token
+        );
         // app.use("/", require("./routes"));
-        }
-      });
-      
-  res.send();
+      }
+    });
+  // res.send(`<a href="http://localhost:3000/success">Continue</a><br><a href="http://localhost:3000/api-docs">Go to Docs</a>`)
 });
 
+//logged in
+app.get("/success", async (req, res) => {
+  const access_token = req.query.access_token;
+  const result = await axios({
+    method: "get",
+    url: "https://api.github.com/user",
+    headers: {
+      Authorization: `Bearer OAUTH-TOKEN` + access_token,
+    },
+  })
+    .then((_response) => {
+      return {
+        status: _response.status,
+        message: _response.statusText,
+        data: _response.data,
+      };
+    })
+    .catch((error) => {
+      return {
+        status: error.status,
+        message: error.message,
+      };
+    });
+
+  res.status(400).send(result);
+});
 //body-parser
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -88,11 +90,11 @@ app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, DELETE, OPTIONS"
-    );
-    next();
-  });
+  );
+  next();
+});
 
-  //routes
+//routes
 app.use("/", require("./routes"));
 
 //port
