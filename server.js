@@ -36,25 +36,17 @@ app.get("/loginauth", async (req, res) => {
 
   await axios
     .post("https://github.com/login/oauth/access_token", body, options)
-    .then((res) => res.data.access_token)
-    .then((access_token) => {
-      console.log(access_token);
-      if (!access_token) {
-        console.log("💩");
-        return;
-      } else {
-        console.log("🌴🌊");
-        // res.send(`<a href="http://localhost:3000/success?access_token="`+ access_token + `>Continue</a>`)
-        // res.headersSent
-        // res.send(`<a href="http://localhost:3000/success">Continue</a><br><a href="http://localhost:3000/api-docs">Go to Docs</a>`)
-        return res.redirect(
-          // "http://tauriel341-project2/success?access_token=" + access_token
-          'http://localhost:3000/success?access_token=' + access_token
-        );
-        // app.use("/", require("./routes"));
-      }
+    .then((res) => {
+      console.log("🍂", res);
+      token = res.data.access_token;
+      console.log("🌟", token);
+    })
+    .then(() => {
+      return res.redirect(
+        "http://localhost:3000/success?access_token=" + token
+      );
     });
-    res.send()
+  res.send();
   // res.send(
   //   `<a href="http://localhost:3000/success">Continue</a><br><a href="http://localhost:3000/api-docs">Go to Docs</a>`
   // );
@@ -62,7 +54,7 @@ app.get("/loginauth", async (req, res) => {
 
 //logged in
 app.get("/success", async (req, res) => {
-  console.log('👀')
+  console.log("👀");
   const access_token = req.query.access_token;
   const result = axios({
     method: "get",
@@ -72,7 +64,7 @@ app.get("/success", async (req, res) => {
     },
   })
     .then((res) => {
-      console.log('🧝‍♀️')
+      console.log("🧝‍♀️");
       return {
         status: res.status,
         message: res.statusText,
@@ -80,7 +72,8 @@ app.get("/success", async (req, res) => {
       };
     })
     .catch((error) => {
-      console.log('⚠')
+      console.log("🚫");
+      console.log(error)
       return {
         status: error.status,
         message: error.message,
@@ -89,6 +82,7 @@ app.get("/success", async (req, res) => {
 
   res.status(400).send(result);
 });
+
 //body-parser
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
