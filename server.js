@@ -46,8 +46,9 @@ app.get("/loginauth", async (req, res) => {
         console.log("🌴🌊");
         // res.send(`<a href="http://localhost:3000/success?access_token="`+ access_token + `>Continue</a>`)
         // res.headersSent
+        // res.send(`<a href="http://localhost:3000/success">Continue</a><br><a href="http://localhost:3000/api-docs">Go to Docs</a>`)
         return res.redirect(
-          "http://localhost:3000/success?access_token=" + access_token
+          "http://tauriel341-project2/success?access_token=" + access_token
         );
         // app.use("/", require("./routes"));
       }
