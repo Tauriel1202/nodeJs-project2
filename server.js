@@ -56,15 +56,17 @@ app.get("/loginauth", async (req, res) => {
 app.get("/success", async (req, res) => {
   console.log("👀");
   const access_token = req.query.access_token;
-  const result = axios({
+  const tempToken = "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"
+  const result = await axios({
     method: "get",
     url: "https://api.github.com/user",
     headers: {
-      Authorization: `Bearer OAUTH-TOKEN` + access_token,
+      Authorization: `Bearer ${tempToken}`,
     },
   })
     .then((res) => {
       console.log("🧝‍♀️");
+      console.log(res)
       return {
         status: res.status,
         message: res.statusText,
