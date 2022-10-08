@@ -519,25 +519,25 @@
             "description": "Updated!"
           }
         }
-      }
-    },
-    "delete": {
-      "description": "Delete a Soundtrack! ❌",
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "type": "string"
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "OK"
-        }
-      }
-    },
+      },
 
+      "delete": {
+        "description": "Delete a Soundtrack! ❌",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api-docs": {
       "get": {
         "description": "",
