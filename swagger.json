@@ -293,6 +293,247 @@
         }
       }
     },
+    "/booksAndMovies": {
+      "get": {
+        "description": "Get all Books and Movies",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      },
+      "post": {
+        "description": "Add a new Character!",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "Name of Book or Movie"
+                },
+                "series": {
+                  "example": "Name of Series"
+                },
+                "places": {
+                  "example": "Book1, Book2, Book3"
+                },
+                "characters": {
+                  "example": "Character1, Character2, Character3"
+                },
+                "releaseDate": {
+                  "example": "Release Date"
+                },
+                "bookOrMovie": {
+                  "example": "Is it a book or movie?"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created!"
+          }
+        }
+      }
+    },
+    "/booksAndMovies/{id}": {
+      "get": {
+        "description": "Find One Book or Movie!",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a Book or Movie!",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": {
+              "example": "Name of Book or Movie"
+            },
+            "series": {
+              "example": "Name of Series"
+            },
+            "places": {
+              "example": "Book1, Book2, Book3"
+            },
+            "characters": {
+              "example": "Character1, Character2, Character3"
+            },
+            "releaseDate": {
+              "example": "Release Date"
+            },
+            "bookOrMovie": {
+              "example": "Is it a book or movie?"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Updated!"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a Book or Movie! ❌",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/music": {
+      "get": {
+        "description": "Get all Music",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      },
+      "post": {
+        "description": "Add a Soundtrack!",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "soundtrack": {
+                  "example": "Name of Soundtrack"
+                },
+                "composer": {
+                  "example": "Name of Composer"
+                },
+                "movie": {
+                  "example": "Movie Name"
+                },
+                "year": {
+                  "example": "What year did it come out?"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/music/{id}": {
+      "get": {
+        "description": "Find One Soundtrack!",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a Soundtrack!",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": [
+                {
+                  "name": "body",
+                  "in": "body",
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "soundtrack": {
+                        "example": "Name of Soundtrack"
+                      },
+                      "composer": {
+                        "example": "Name of Composer"
+                      },
+                      "movie": {
+                        "example": "Movie Name"
+                      },
+                      "year": {
+                        "example": "What year did it come out?"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Updated!"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a Soundtrack! ❌",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api-docs": {
       "get": {
         "description": "",
