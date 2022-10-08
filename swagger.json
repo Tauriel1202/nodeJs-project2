@@ -490,29 +490,20 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "properties": [
-                {
-                  "name": "body",
-                  "in": "body",
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "soundtrack": {
-                        "example": "Name of Soundtrack"
-                      },
-                      "composer": {
-                        "example": "Name of Composer"
-                      },
-                      "movie": {
-                        "example": "Movie Name"
-                      },
-                      "year": {
-                        "example": "What year did it come out?"
-                      }
-                    }
-                  }
+              "properties": {
+                "soundtrack": {
+                  "example": "Name of Soundtrack"
+                },
+                "composer": {
+                  "example": "Name of Composer"
+                },
+                "movie": {
+                  "example": "Movie Name"
+                },
+                "year": {
+                  "example": "What year did it come out?"
                 }
-              ]
+              }
             }
           }
         ],
@@ -521,24 +512,25 @@
             "description": "Updated!"
           }
         }
-      },
-      "delete": {
-        "description": "Delete a Soundtrack! ❌",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
+      }
+    },
+    "delete": {
+      "description": "Delete a Soundtrack! ❌",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK"
         }
       }
     },
+
     "/api-docs": {
       "get": {
         "description": "",
