@@ -278,11 +278,11 @@ PUT http://tauriel341-project2.onrender.com/booksAndMovies/6340d05f4e5f6cbc5c24e
 Content-Type: application/json
 
 {
-  "name": "The Sibling Bond",
-  "series": "Alvena",
-  "places": ["Taurenor", "Lamond", "Jana", "Faladuin"],
-  "characters": ["Maethoriel", "Naesalia", "Beren", "Shawn", "Elethial", "Amilera", "Meren"],
-  "releaseDate": "TBD",
+  "name": "Nebula Secret",
+  "series": "Explorer Academy",
+  "places": ["Hawaii", "D.C", "Orion"],
+  "characters": ["Cruz", "Lani", "Bryndis", "Sailor", "Emmet"],
+  "releaseDate": "2018",
   "bookOrMovie": "Book"
 }
 
@@ -299,14 +299,14 @@ POST http://tauriel341-project2.onrender.com/music
 Content-Type: application/json
 
 {
-  "soundtrack": "HammerTime",
-  "composer": "Ludwig Goransson",
-  "movie": "The Mandalorian",
-  "year": "2019"
+  "soundtrack": "Home",
+  "composer": "The Chipmunks",
+  "movie": "Road Chip",
+  "year": "2015"
 }
 
 ### Get one
-GET http://tauriel341-project2.onrender.com/music/6340ddc6682d9b414c66be31
+GET http://tauriel341-project2.onrender.com/music/6341035c3e15ec34e29cba8f
 
 ### Update one
 PUT http://tauriel341-project2.onrender.com/music/6340d88beb1b88c30f7a73fe
@@ -320,4 +320,4 @@ Content-Type: application/json
 }
 
 ### Delete one
-DELETE http://tauriel341-project2.onrender.com/music/6340d88beb1b88c30f7a73fe
+DELETE http://tauriel341-project2.onrender.com/music/6341035c3e15ec34e29cba8f

@@ -26,13 +26,13 @@ const music = require("./music");
 routes.use("/music", music);
 
 //graphql
-// routes.use(
-//   "/graphql",
-//   graphqlHTTP({
-//     schema:schema,
-//     graphiql: true,
-//   })
-// );
+routes.use(
+  "/graphql",
+  graphqlHTTP({
+    schema:schema,
+    graphiql: true,
+  })
+);
 
 //export
 module.exports = routes;

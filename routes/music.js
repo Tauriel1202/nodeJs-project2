@@ -1,6 +1,7 @@
 //music routes
 const routes = require("express").Router();
 const music = require("../controllers/music");
+console.log(music)
 
 //validators
 const errorChecker = require("../validation");

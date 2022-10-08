@@ -293,7 +293,7 @@
         }
       }
     },
-    "/booksAndMovies": {
+    "/booksAndMovies/": {
       "get": {
         "description": "Get all Books and Movies",
         "parameters": [],
@@ -414,7 +414,7 @@
         }
       }
     },
-    "/music": {
+    "/music/": {
       "get": {
         "description": "Get all Music",
         "parameters": [],
