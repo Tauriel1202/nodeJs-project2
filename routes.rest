@@ -292,10 +292,10 @@ DELETE http://tauriel341-project2.onrender.com/booksAndMovies/6340d05f4e5f6cbc5c
 
 //Music
 ### Get all
-GET http://tauriel341-project2.onrender.com/music
+GET https://tauriel341-project2.onrender.com/music
 
 ### Add one
-POST http://tauriel341-project2.onrender.com/music
+POST https://tauriel341-project2.onrender.com/music
 Content-Type: application/json
 
 {
@@ -306,7 +306,7 @@ Content-Type: application/json
 }
 
 ### Get one
-GET http://tauriel341-project2.onrender.com/music/6341035c3e15ec34e29cba8f
+GET https://tauriel341-project2.onrender.com/music/6341035c3e15ec34e29cba8f
 
 ### Update one
 PUT http://tauriel341-project2.onrender.com/music/6340d88beb1b88c30f7a73fe
