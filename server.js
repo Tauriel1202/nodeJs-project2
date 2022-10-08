@@ -11,79 +11,105 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 //login
-const axios = require("axios");
-const githubAuthUrl = "https://github.com/login/oauth/authorize?client_id=";
+const { auth, requiresAuth } = require("express-openid-connect");
 
-//redirect to github signin
-app.get("/auth", (req, res) => {
-  res.redirect(`${githubAuthUrl}${process.env.GITHUB_ID}`);
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.SECRET,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.CLIENT_ID,
+  issuerBaseURL: process.env.ISSUER_BASE_URL,
+};
+
+app.use(auth(config));
+
+app.get("/", (req, res) => {
+  try {
+    res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
+  } catch (e) {
+    console.log(e);
+  }
 });
 
-//log in creds
-app.get("/loginauth", async (req, res) => {
-  const code = req.query.code;
-  const body = {
-    client_id: process.env.GITHUB_ID,
-    client_secret: process.env.GITHUB_SECRET,
-    code,
-  };
-
-  const options = {
-    headers: {
-      accept: "application/json",
-    },
-  };
-
-  await axios
-    .post("https://github.com/login/oauth/access_token", body, options)
-    .then((res) => {
-      console.log("🍂", res);
-      token = res.data.access_token;
-      console.log("🌟", token);
-    })
-    .then(() => {
-      return res.redirect(
-        "http://localhost:3000/success?access_token=" + token
-      );
-    });
-  res.send();
-  // res.send(
-  //   `<a href="http://localhost:3000/success">Continue</a><br><a href="http://localhost:3000/api-docs">Go to Docs</a>`
-  // );
+app.get("/profile", requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
 });
 
-//logged in
-app.get("/success", async (req, res) => {
-  console.log("👀");
-  const access_token = req.query.access_token;
-  // const tempToken = "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"
-  const result = await axios({
-    method: "get",
-    url: "https://api.github.com/user",
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-  })
-    .then((res) => {
-      console.log("🧝‍♀️");
-      console.log(res)
-      return {
-        status: res.status,
-        message: res.statusText,
-        data: res.data,
-      };
-    })
-    .catch((error) => {
-      console.log("🚫");
-      console.log(error)
-      return {
-        status: error.status,
-        message: error.message,
-      };
-    });
+//login with Github
+// const axios = require("axios");
+// const githubAuthUrl = "https://github.com/login/oauth/authorize?client_id=";
 
-  res.status(400).send(result);
-});
+// //redirect to github signin
+// app.get("/auth", (req, res) => {
+//   res.redirect(`${githubAuthUrl}${process.env.GITHUB_ID}`);
+// });
+
+// //log in creds
+// app.get("/loginauth", async (req, res) => {
+//   const code = req.query.code;
+//   const body = {
+//     client_id: process.env.GITHUB_ID,
+//     client_secret: process.env.GITHUB_SECRET,
+//     code,
+//   };
+
+//   const options = {
+//     headers: {
+//       accept: "application/json",
+//     },
+//   };
+
+//   await axios
+//     .post("https://github.com/login/oauth/access_token", body, options)
+//     .then((res) => {
+//       console.log("🍂", res);
+//       token = res.data.access_token;
+//       console.log("🌟", token);
+//     })
+//     .then(() => {
+//       return res.redirect(
+//         "http://localhost:3000/success?access_token=" + token
+//       );
+//     });
+//   res.send();
+// res.send(
+//   `<a href="http://localhost:3000/success">Continue</a><br><a href="http://localhost:3000/api-docs">Go to Docs</a>`
+// );
+// });
+
+// //logged in
+// app.get("/success", async (req, res) => {
+//   console.log("👀");
+//   const access_token = req.query.access_token;
+//   // const tempToken = "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"
+//   const result = await axios({
+//     method: "get",
+//     url: "https://api.github.com/user",
+//     headers: {
+//       Authorization: `Bearer ${access_token}`,
+//     },
+//   })
+//     .then((res) => {
+//       console.log("🧝‍♀️");
+
+//       return {
+//         status: res.status,
+//         message: res.statusText,
+//         data: res.data,
+//       };
+//     })
+//     .catch((error) => {
+//       console.log("🚫");
+//       console.log(error)
+//       return {
+//         status: error.status,
+//         message: error.message,
+//       };
+//     });
+
+//   res.status(400).send(result);
+// });
 
 //body-parser
 const bodyParser = require("body-parser");
