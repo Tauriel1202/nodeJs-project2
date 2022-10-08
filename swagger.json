@@ -371,23 +371,30 @@
             "type": "string"
           },
           {
-            "name": {
-              "example": "Name of Book or Movie"
-            },
-            "series": {
-              "example": "Name of Series"
-            },
-            "places": {
-              "example": "Book1, Book2, Book3"
-            },
-            "characters": {
-              "example": "Character1, Character2, Character3"
-            },
-            "releaseDate": {
-              "example": "Release Date"
-            },
-            "bookOrMovie": {
-              "example": "Is it a book or movie?"
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "Name of Book or Movie"
+                },
+                "series": {
+                  "example": "Name of Series"
+                },
+                "places": {
+                  "example": "Book1, Book2, Book3"
+                },
+                "characters": {
+                  "example": "Character1, Character2, Character3"
+                },
+                "releaseDate": {
+                  "example": "Release Date"
+                },
+                "bookOrMovie": {
+                  "example": "Is it a book or movie?"
+                }
+              }
             }
           }
         ],
