@@ -92,6 +92,79 @@ Content-Type: application/json
 ### Delete a Quote
 DELETE  http://localhost:3000/quotes/633764d4bfb0cb85ba052717
 
+
+//Books and Movies
+### Get all
+GET http://localhost:3000/booksAndMovies
+
+### Add
+POST http://localhost:3000/booksAndMovies
+Content-Type: application/json
+
+{
+  "name": "The Sibling Bond",
+  "series": "Alvena",
+  "places": ["Taurenor", "Lamond", "Jana"],
+  "characters": ["Maethoriel", "Naesalia", "Beren", "Shawn"],
+  "releaseDate": "TBD",
+  "bookOrMovie": "Book"
+}
+
+### Get one
+GET http://localhost:3000/booksAndMovies/6340dcc0543da89509a5f6c0
+
+### Update one
+PUT http://localhost:3000/booksAndMovies/6340d05f4e5f6cbc5c24e20b
+Content-Type: application/json
+
+{
+  "name": "The Sibling Bond",
+  "series": "Alvena",
+  "places": ["Taurenor", "Lamond", "Jana", "Faladuin"],
+  "characters": ["Maethoriel", "Naesalia", "Beren", "Shawn", "Elethial", "Amilera", "Meren"],
+  "releaseDate": "TBD",
+  "bookOrMovie": "Book"
+}
+
+### Delete one
+DELETE http://localhost:3000/booksAndMovies/6340d05f4e5f6cbc5c24e20b
+
+
+//Music
+### Get all
+GET http://localhost:3000/music
+
+### Add one
+POST http://localhost:3000/music
+Content-Type: application/json
+
+{
+  "soundtrack": "HammerTime",
+  "composer": "Ludwig Goransson",
+  "movie": "The Mandalorian",
+  "year": "2019"
+}
+
+### Get one
+GET http://localhost:3000/music/6340ddc6682d9b414c66be31
+
+### Update one
+PUT http://localhost:3000/music/6340d88beb1b88c30f7a73fe
+Content-Type: application/json
+
+{
+  "soundtrack": "HammerTime",
+  "composer": "Ludwig Goransson",
+  "movie": "The Mandalorian: Epi. 1",
+  "year": "2019"
+}
+
+### Delete one
+DELETE http://localhost:3000/music/6340d88beb1b88c30f7a73fe
+
+
+
+
 //Render
 ###All Chars
 GET https://tauriel341-project2.onrender.com/characters
@@ -178,3 +251,73 @@ Content-Type: application/json
 
 ### Delete a Quote
 DELETE  http://tauriel341-project2.onrender.com/quotes/6336011008a0e23769dea90c
+
+
+//Books and Movies
+### Get all
+GET http://tauriel341-project2.onrender.com/booksAndMovies
+
+### Add
+POST http://tauriel341-project2.onrender.com/booksAndMovies
+Content-Type: application/json
+
+{
+  "name": "The Sibling Bond",
+  "series": "Alvena",
+  "places": ["Taurenor", "Lamond", "Jana"],
+  "characters": ["Maethoriel", "Naesalia", "Beren", "Shawn"],
+  "releaseDate": "TBD",
+  "bookOrMovie": "Book"
+}
+
+### Get one
+GET http://tauriel341-project2.onrender.com/booksAndMovies/6340dcc0543da89509a5f6c0
+
+### Update one
+PUT http://tauriel341-project2.onrender.com/booksAndMovies/6340d05f4e5f6cbc5c24e20b
+Content-Type: application/json
+
+{
+  "name": "The Sibling Bond",
+  "series": "Alvena",
+  "places": ["Taurenor", "Lamond", "Jana", "Faladuin"],
+  "characters": ["Maethoriel", "Naesalia", "Beren", "Shawn", "Elethial", "Amilera", "Meren"],
+  "releaseDate": "TBD",
+  "bookOrMovie": "Book"
+}
+
+### Delete one
+DELETE http://tauriel341-project2.onrender.com/booksAndMovies/6340d05f4e5f6cbc5c24e20b
+
+
+//Music
+### Get all
+GET http://tauriel341-project2.onrender.com/music
+
+### Add one
+POST http://tauriel341-project2.onrender.com/music
+Content-Type: application/json
+
+{
+  "soundtrack": "HammerTime",
+  "composer": "Ludwig Goransson",
+  "movie": "The Mandalorian",
+  "year": "2019"
+}
+
+### Get one
+GET http://tauriel341-project2.onrender.com/music/6340ddc6682d9b414c66be31
+
+### Update one
+PUT http://tauriel341-project2.onrender.com/music/6340d88beb1b88c30f7a73fe
+Content-Type: application/json
+
+{
+  "soundtrack": "HammerTime",
+  "composer": "Ludwig Goransson",
+  "movie": "The Mandalorian: Epi. 1",
+  "year": "2019"
+}
+
+### Delete one
+DELETE http://tauriel341-project2.onrender.com/music/6340d88beb1b88c30f7a73fe

@@ -33,6 +33,25 @@ const quoteCheck = [
   check("loc", "Where is it from?").notEmpty(),
 ];
 
+const mediaCheck = [
+  check("name", "Name is required.").notEmpty(),
+  check("series", "What is the series called?").notEmpty(),
+  check("places", "What places are visited?").notEmpty(),
+  check("places", "Must be an Array").isArray(),
+  check("characters", "Who is in the story?").notEmpty(),
+  check("characters", "Must be an Array.").isArray(),
+  check("releaseDate", "When did it come out?").notEmpty(),
+  check("bookOrMovie", "Is the work a book or movie?").notEmpty(),
+];
+
+const musicCheck = [
+  check("soundtrack", "What is the song called?").notEmpty(),
+  check("composer", "Who wrote it? If you do not know, type: unknown.").notEmpty(),
+  check("movie", "Where is it from?").notEmpty(),
+  check("year", "When did it come out?").notEmpty(),
+
+]
+
 const idTester = [check("id", "Enter a valid id: 24 characters.").isLength(24)];
 
-module.exports = { errorReturn, charCheck, idTester, quoteCheck };
+module.exports = { errorReturn, charCheck, idTester, quoteCheck, mediaCheck, musicCheck };
