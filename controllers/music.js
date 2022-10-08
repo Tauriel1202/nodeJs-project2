@@ -41,9 +41,9 @@ async function addMusic(req, res) {
         movie: req.body.movie,
         year: req.body.year,
       })
-      .then((media) => {
-        console.log(media);
-        res.status(201).send(media);
+      .then((book) => {
+        console.log(book);
+        res.status(201).send(book)
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);

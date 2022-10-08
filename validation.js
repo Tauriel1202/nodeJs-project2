@@ -46,12 +46,18 @@ const mediaCheck = [
 
 const musicCheck = [
   check("soundtrack", "What is the song called?").notEmpty(),
-  check("composer", "Who wrote it? If you do not know, type: unknown.").notEmpty(),
+  check("composer", "Who wrote it?").notEmpty(),
   check("movie", "Where is it from?").notEmpty(),
   check("year", "When did it come out?").notEmpty(),
-
-]
+];
 
 const idTester = [check("id", "Enter a valid id: 24 characters.").isLength(24)];
 
-module.exports = { errorReturn, charCheck, idTester, quoteCheck, mediaCheck, musicCheck };
+module.exports = {
+  errorReturn,
+  charCheck,
+  idTester,
+  quoteCheck,
+  mediaCheck,
+  musicCheck,
+};
